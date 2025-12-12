@@ -1,0 +1,153 @@
+@startuml
+
+class Game{
+# Initialize() : void
+# LoadContent() : void
+# Update(gameTime: GameTime) : void
+# Draw(gameTime: GameTime) : void
+# Run() : void
+}
+class Texture2D
+class Vector2
+class Rectangle
+class Point
+class Color
+class GameTime
+class SpriteBatch
+class ExitingEventArgs
+class Labyrinthe
+
+' ----------------------------------------------------
+' Classe principale du Jeu
+' ----------------------------------------------------
+class MyGame extends Game {
+- _graphics : GraphicsDeviceManager
+    - _spriteBatch : SpriteBatch
+    - <u>TEMPS_TOTAL_EN_SECONDES</u> : double = 60.0
+    - tileSize : int = 40
+    - moveTimer : double
+    - moveInterval : double = 150
+    -heureDebut : DateTime
+    -_tempsRestant : double
+    -_policeTemps : SpriteFont
+    - labyrinthe : Labyrinthe
+    - joueur : Joueur
+    - objectif : Objectif
+    - _joueurSprite : Sprite
+    - _objectifSprite : Sprite
+    - murTexture : Texture2D
+    - solTexture : Texture2D
+    - joueurTexture : Texture2D
+    - objectifTexture : Texture2D
+    - victoireTexture : Texture2D
+    - echecTexture : Texture2D
+    - victoire : bool
+    - echec : bool
+    
+    + MyGame()
+    - Game1_Exiting(sender: object, e: ExitingEventArgs) : void
+    - Reinitialiser() : void
+    - enregistrerPartie(filename: String) : void
+}
+
+' ----------------------------------------------------
+' Classe Joueur
+' ----------------------------------------------------
+class Joueur {
+    - position : Point
+    - typeJoueur : String
+    
+    + Joueur(filename: String)
+    + getNomSpriteJoueur() : String
+    + Deplacer(dx: int, dy: int, lab: Labyrinthe) : void
+    + getX() : int
+    + getY() : int
+    + getPosition() : Point
+    + setPosition(point: Point) : void
+}
+
+' ----------------------------------------------------
+' Classe Labyrinthe
+' ----------------------------------------------------
+class Labyrinthe {
+    - largeur : int
+    - hauteur : int
+    + grille : int[,]
+    
+    + Labyrinthe(filename: string)
+    + get_Largeur() : int
+    + get_Hauteur() : int
+    + get_Grille(x: int, y: int) : int
+}
+
+' ----------------------------------------------------
+' Classe Objectif
+' ----------------------------------------------------
+class Objectif {
+    - position : Point
+    - typeObjectif : string
+    
+    + Objectif(filename: string)
+    + getNomSpriteObjectif() : string
+    + getX() : int
+    + getY() : int
+    + getPosition() : Point
+}
+
+' ----------------------------------------------------
+' Classe Sprite
+' ----------------------------------------------------
+class Sprite {
+    - _texture : Texture2D
+    - _size : int
+    - _position : Vector2
+    - <u>_sizeMin</u> : int = 10 
+    - <u>_sizeMax</u> : int = 128
+    - _color : Color = Color.White
+    
+    + _Texture : Texture2D { get; init }
+    + _Size : int { get; set }
+    + _Rect : Rectangle { get }
+    + _Position : Vector2 { get; set }
+    
+    + Sprite(texture: Texture2D, position: Vector2, size: int)
+    + Draw(spriteBatch: SpriteBatch) : void
+}
+
+' ----------------------------------------------------
+' Classes de Sauvegarde
+' ----------------------------------------------------
+class Partie {
+    + _joueurPartie : String { get; set }
+    + _DatePartie : String { get; set }
+    + _TempsPartie : String { get; set }
+    + _victoire : bool { get; set }
+    
+    + Partie(joueurPartie: String, datePartie: String, tempsPartie: String, victoireOuPas: bool)
+    + Partie()
+}
+
+class Parties {
+    + _PartiesJouees : "List<Partie>" { get; set }
+}
+
+
+Parties "1" *-- "*" Partie
+
+
+Joueur "1" *-- "1" Point
+Objectif "1" *-- "1" Point
+
+
+
+Sprite *-- Texture2D
+Sprite *-- Vector2
+Sprite *-- Rectangle
+
+MyGame *-- Joueur
+MyGame *-- Labyrinthe
+MyGame *-- Objectif
+MyGame *-- Sprite
+MyGame *-- SpriteBatch
+
+@enduml

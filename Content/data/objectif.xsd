@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.l3miage.fr/niveau"
+        xmlns:ni="http://www.l3miage.fr/niveau"
+        elementFormDefault="qualified">
+        <!--targetNamespace="http://www.l3miage.fr/objectif"
+        xmlns:obj="http://www.l3miage.fr/objectif"-->
+       
+
+
+    <element name="objectif" type="ni:Objectif"/>
+
+    <complexType name="Objectif">
+        <sequence>
+            <element name="typeObjectif" type="ni:TypeObjectif"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name ="TypeObjectif">
+        <restriction base="string">
+            <enumeration value="Carotte"/>
+            <enumeration value="Herbe"/>
+            <enumeration value="Salade"/>
+        </restriction>
+    </simpleType >
+    
+</schema>

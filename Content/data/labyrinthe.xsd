@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.l3miage.fr/niveau"
+        xmlns:ni="http://www.l3miage.fr/niveau"
+        elementFormDefault="qualified">
+        <!--
+        targetNamespace="http://www.l3miage.fr/labyrinthe"
+        xmlns:lab="http://www.l3miage.fr/labyrinthe"
+        elementFormDefault="qualified">-->
+    
+
+    <element name="labyrinthe" type="ni:Labyrinthe"/>
+    
+       <complexType name="Labyrinthe">
+           <sequence>
+               <element name="depart" type="ni:Depart" maxOccurs="1"/><!--Point de depart joueur-->
+               <element name="arrivee" type="ni:Arrivee" maxOccurs="1"/><!--point d'arrivee ou point ou se trouve l'objectif-->
+               <element name="cases" type="ni:Cases" maxOccurs="1"/> <!--les coordonnes du labyrinthe  lui même. maxOccurs=1 car il nya qu'un seul labyrinthe-->
+           </sequence>
+           <attribute name="largeur" type="int" use="required"/>
+           <attribute name="hauteur" type="int" use="required"/>
+        </complexType>
+                
+    <complexType name="Depart">
+                <attribute name="x" type="int" use="required"/>
+                <attribute name="y" type="int" use="required"/>
+    </complexType>
+
+    <complexType name="Arrivee">
+        <attribute name="x" type="int" use="required"/>
+        <attribute name="y" type="int" use="required"/>
+    </complexType>
+    
+    <complexType name="Cases">
+        <sequence>
+            <element name="ligne" type="ni:LigneLab" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    
+    <simpleType name="LigneLab">
+        <restriction base="string">
+            <pattern value="[0-1]*"/>
+        </restriction>
+    </simpleType>
+</schema>

@@ -1,0 +1,44 @@
+<niveau 
+        xmlns:niv="http://www.l3miage.fr/niveau"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.l3miage.fr/niveau niveau.xsd">
+    <!--Fichier d'initialisation du jeu-->
+  <labyrinthe largeur="25" hauteur="25">
+    <depart x="1" y="1"/>
+    <arrivee x="23" y="23"/>
+    <cases>
+      <!--ne pas modifier-->
+        <ligne>1111111111111111111111111</ligne>
+        <ligne>1000001110000001110000001</ligne>
+        <ligne>1011101010111101010111011</ligne>
+        <ligne>1000100010100001000100011</ligne>
+        <ligne>1110111110111111111101111</ligne>
+        <ligne>1000001000000010000000001</ligne>
+        <ligne>1011101110111010111011101</ligne>
+        <ligne>1010000010000010000010001</ligne>
+        <ligne>1010111111111011111110101</ligne>
+        <ligne>1010000000010000000010101</ligne>
+        <ligne>1110111111011111111011101</ligne>
+        <ligne>1000100001000001000000001</ligne>
+        <ligne>1011101111111111111011101</ligne>
+        <ligne>1010001000000010000010001</ligne>
+        <ligne>1011101011111010111110111</ligne>
+        <ligne>1000001010000010100000001</ligne>
+        <ligne>1011111010111110111111101</ligne>
+        <ligne>1000000010000000000100001</ligne>
+        <ligne>1111111110111111111101111</ligne>
+        <ligne>1000000010000010000000001</ligne>
+        <ligne>1011111011111011111111101</ligne>
+        <ligne>1000001000000010000000001</ligne>
+        <ligne>1111111111111110111111111</ligne>
+        <ligne>1000000000000000000000001</ligne>
+        <ligne>1111111111111111111111111</ligne>
+    </cases>
+  </labyrinthe>
+  <objectif>
+    <typeObjectif>Salade</typeObjectif> <!--Autre valeurs possibles (bien respecter la casse) : Carotte, Herbe-->
+  </objectif>
+  <joueur>
+    <typeJoueur>Tortue</typeJoueur> <!--Autre valeurs possibles (bien respecter la casse) : Lapin, Vache-->
+  </joueur>
+</niveau>

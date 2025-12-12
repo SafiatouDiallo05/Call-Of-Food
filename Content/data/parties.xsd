@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.l3miage.fr/parties"
+        xmlns:pa="http://www.l3miage.fr/parties"
+        elementFormDefault="qualified">
+
+    <include schemaLocation="partie.xsd"/>
+    <element name="parties" type="pa:Parties"/>
+
+    <complexType name="Parties">
+        <sequence>
+            <element name="partie" type="pa:Partie" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+</schema>

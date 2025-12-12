@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.l3miage.fr/niveau"
+        xmlns:ni="http://www.l3miage.fr/niveau"
+        elementFormDefault="qualified">
+        <!--targetNamespace="http://www.l3miage.fr/joueur"
+        xmlns:jo="http://www.l3miage.fr/joueur"-->
+        
+
+
+    <element name="joueur" type="ni:Joueur"/>
+
+    <complexType name="Joueur">
+        <sequence>
+            <element name="typeJoueur" type="ni:TypeJoueur"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name ="TypeJoueur">
+        <restriction base="string">
+            <enumeration value="Lapin"/>
+            <enumeration value="Vache"/>
+            <enumeration value="Tortue"/>
+        </restriction>
+    </simpleType >
+
+    
+</schema>

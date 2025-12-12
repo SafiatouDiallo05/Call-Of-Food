@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.l3miage.fr/parties"
+        xmlns:pa="http://www.l3miage.fr/parties"
+        elementFormDefault="qualified">
+    
+    <element name="partie" type="pa:Partie"/>
+    
+    <complexType name="Partie">
+        <sequence>
+            <element name="joueurPartie" type="string" maxOccurs="1"/>
+            <element name="datePartie" type="string" maxOccurs="1"/>
+            <element name="tempsPartie" type="string" maxOccurs="1"/>
+            <element name="victoire" type="boolean" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+    
+</schema>
